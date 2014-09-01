@@ -1,5 +1,5 @@
 #define MyAppName "MD5Sum"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Kaleb Klein"
 #define MyAppURL "http://www.kalebklein.com"
 #define MyAppExeName "MD5Sum.exe"

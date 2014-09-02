@@ -36,7 +36,8 @@ md5_win32_bin\bin\Qt5Gui.dll
 md5_win32_bin\bin\Qt5Widgets.dll
 ```
 
-This will allow the compiler to successfully build the installer
+This will allow the compiler to successfully build the installer  
+However, build tool v2 copies these libs, so it isn't needed to copy yourself, the build tool will handle this. You will however still need to obtain the MfW libs and exe on your own.
 
 ## Contributors
 [Pazuzu156](https://github.com/pazuzu156)

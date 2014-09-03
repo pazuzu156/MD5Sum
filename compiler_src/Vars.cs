@@ -42,6 +42,8 @@ namespace compiler
             {
                 processLine(line);
             }
+            reader.Close();
+            file.Close();
         }
 
         private void processLine(String line)

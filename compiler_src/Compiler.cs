@@ -44,16 +44,7 @@ namespace compiler
         {
             Console.WriteLine("Compiling project..\n");
             ProcessStartInfo i = new ProcessStartInfo();
-            
-            if(EnVars.ContainsKey("MKBIN"))
-            {
-                i.FileName = EnVars["MKBIN"] + "make.exe";
-            }
-            else
-            {
-                i.FileName = EnVars["CURDIR"] + "make.exe";
-            }
-
+            i.FileName = ((EnVars.ContainsKey("MKBIN")) ? EnVars["MKBIN"] : EnVars["CURDIR"]) + "make.exe";
             i.UseShellExecute = false;
             Process p = Process.Start(i);
             p.WaitForExit();

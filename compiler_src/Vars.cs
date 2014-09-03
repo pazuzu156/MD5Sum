@@ -48,7 +48,7 @@ namespace compiler
         {
             // Simple check for removing headers and comments
             // Header ex: [Header Name]
-            if(!Regex.IsMatch(line, @"[\[][a-zA-Z\s]+[\]]") || !line.Contains("#"))
+            if (!Regex.IsMatch(line, @"[\[][a-zA-Z\s]+[\]]") || !line.StartsWith("#") || !line.StartsWith(";"))
             {
                 if(line.EndsWith(".dll"))
                 {

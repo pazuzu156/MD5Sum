@@ -72,11 +72,12 @@ Source: "..\src\gear.ico"; DestDir: "{app}\src"; Flags: ignoreversion; Component
 Source: "..\src\gear_icon_resource.qrc"; DestDir: "{app}\src"; Flags: ignoreversion; Components: src
 Source: "..\src\icon.rc"; DestDir: "{app}\src"; Flags: ignoreversion; Components: src
 Source: "..\src\MD5Sum.pro"; DestDir: "{app}\src"; Flags: ignoreversion; Components: src
+
+; Rest of stuff
+Source: "bin\source.txt"; DestDir: "{app}"; Flags: ignoreversion; Components: src
 Source: "bin\libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
-
-; Rest of stuff
 Source: "bin\gear.ico"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\icudt52.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\icuin52.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app

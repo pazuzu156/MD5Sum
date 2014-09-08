@@ -16,14 +16,15 @@ To build, you need three different tools:
 1. Qt - Compiler and IDE (For programming and graphical UI building)
 2. GnuMake for Win32 (For compiling and generating exe)
 3. Inno Setup (For building installer via iss install script)
+4. MinGW (Contains g++ compiler for Qt project)
 
-Internet shortcuts are provided for all three tools, but not the tools themselves.  
+Internet shortcuts are provided for all four tools, but not the tools themselves.  
 
 ~~GnuMake needs to be placed inside the base directory for the project, namely the one with build_win32.bat~~
 
 compiler.exe will use GnuMake if you've installed it onto your system. If it cannot be found via compiler.ini, then it will default to the current directory the compiler is run in.
 
-It's simple, install Qt, install Inno Setup, and paste GnuMake along with its dependencies (two dlls) and run build_win32.bat
+It's simple, install Qt, install Inno Setup, and paste GnuMake along with its dependencies (two dlls) if it's not installed, and run compiler.exe
 
 ## Libs You Need
 You will need several libraries that are included in Qt.  

@@ -11,3 +11,4 @@ md5_win32_bin/bin/Qt5Core.dll
 md5_win32_bin/bin/Qt5Gui.dll
 md5_win32_bin/bin/Qt5Widgets.dll
 md5_win32_bin/bin/platforms/qwindows.dll
+compile_log.txt

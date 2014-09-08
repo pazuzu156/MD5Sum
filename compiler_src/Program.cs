@@ -10,7 +10,7 @@ namespace compiler
         static void Main(string[] args)
         {
             Console.WriteLine();
-            Console.WriteLine("Begining comilation of MD5Sum");
+            Console.WriteLine("Begining compilation of MD5Sum");
             Console.WriteLine();
             new Compiler();
         }

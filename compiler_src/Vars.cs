@@ -44,6 +44,13 @@ namespace compiler
             }
             reader.Close();
             file.Close();
+
+            foreach(string item in EnVars.Keys)
+            {
+                Console.WriteLine(item + ": " + EnVars[item]);
+            }
+
+            Console.WriteLine();
         }
 
         private void processLine(String line)
@@ -85,6 +92,16 @@ namespace compiler
                             break;
                         case "MKBIN":
                             EnVars.Add("MKBIN", str);
+                            break;
+                        case "MINGW":
+                            EnVars.Add("MINGW", str);
+                            // Now, add it to system path, but only for life of process
+                            var mingwdir = @"C:\MinGW\bin\";
+                            var path = Environment.GetEnvironmentVariable("path");
+                            Environment.SetEnvironmentVariable(
+                                "path",
+                                mingwdir + ";" + path,
+                                EnvironmentVariableTarget.Process);
                             break;
                     }
                 }

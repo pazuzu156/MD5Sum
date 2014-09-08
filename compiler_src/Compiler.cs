@@ -238,24 +238,6 @@ namespace compiler
 
         private void cleanup()
         {
-            //Write("Cleaning up..\n");
-
-            //var process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo()
-            //    {
-            //        FileName = getMakeLocation(),
-            //        Arguments = "clean",
-            //        UseShellExecute = false,
-            //        RedirectStandardOutput = true
-            //    }
-            //};
-
-            //process.OutputDataReceived += process_OutputDataReceived;
-            //process.Start();
-            //process.BeginOutputReadLine();
-            //process.WaitForExit();
-
             Write("Cleaning up residual files...\n");
             string[] files = Directory.GetFiles(EnVars["CURDIR"]);
             foreach(string file in files)
@@ -282,8 +264,6 @@ namespace compiler
 
             writer.Close();
             os.Close();
-
-            //Console.Clear();
 
             Write("\nBuild 100% Successfull!");
             Write("Setup file can be found at:\n" + EnVars["MROOT"] + "release");

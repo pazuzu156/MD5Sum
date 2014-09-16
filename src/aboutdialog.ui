@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>A simple and easy to use checksum validator built in C++. A simple checksum generator is also included with this app.</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A simple and easy to use checksum validator built in C++. A simple checksum generator is also included with this app.&lt;/p&gt;&lt;p&gt;© 2014 Kaleb Klein. All Rights Reserved.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -76,7 +76,7 @@ background-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>177</x>
-     <y>90</y>
+     <y>120</y>
      <width>231</width>
      <height>20</height>
     </rect>
@@ -89,7 +89,7 @@ background-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>120</y>
+     <y>150</y>
      <width>251</width>
      <height>111</height>
     </rect>

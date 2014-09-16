@@ -1,12 +1,12 @@
 #include "filedownloader.h"
 
-FileDownloader::FileDownloader(QUrl imageUrl, QObject *parent) :
+FileDownloader::FileDownloader(QUrl fileURL, QObject *parent) :
     QObject(parent)
 {
     connect(&m_WebCtrl, SIGNAL(finished(QNetworkReply*)),
                 SLOT(fileDownloaded(QNetworkReply*)));
 
-    QNetworkRequest request(imageUrl);
+    QNetworkRequest request(fileURL);
     m_WebCtrl.get(request);
 }
 

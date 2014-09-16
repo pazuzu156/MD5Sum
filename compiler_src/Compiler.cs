@@ -221,7 +221,7 @@ namespace compiler
             if (!Directory.Exists(EnVars["MROOT"] + "updates"))
                 Directory.CreateDirectory(EnVars["MROOT"] + "updates");
 
-            File.Copy(EnVars["MBIN"] + "MD5Sum.exe", EnVars["MROOT"] + "updates\\MD5Sum.exe");
+            File.Copy(EnVars["MBIN"] + "MD5Sum.exe", EnVars["MROOT"] + "updates\\MD5Sum.exe", true);
             createInstaller();
         }
 

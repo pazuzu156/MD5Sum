@@ -2,18 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QFileDialog>
-#include <QFile>
-#include <QMessageBox>
-#include <QTextStream>
-#include <QProgressBar>
-#include <QRect>
-#include <QDesktopWidget>
-#include <QCloseEvent>
+#include <QDesktopServices>
+#include <QtCore>
 
 #include "validationthread.h"
 #include "checksumgenerator.h"
 #include "aboutdialog.h"
+#include "filedownloader.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,6 +28,9 @@ private:
     void alert(QString, QString, bool critical = false);
     void establishUIConnections();
     bool working;
+    int lVersion;
+    QString version, gversion;
+    FileDownloader *downloader;
 
 protected:
     void closeEvent(QCloseEvent * e = NULL);
@@ -45,6 +43,10 @@ private slots:
     void onValidateButtonClicked();
     void onCalculationPerformed(QString);
     void OpenChecksumGeneratorWindow();
+    void onUpdateCheckActionTriggered();
+
+    void onCompleted();
+
 };
 
 #endif // MAINWINDOW_H

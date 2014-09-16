@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->establishUIConnections();
     this->working = false;
+    this->lVersion = 1; // Important! This is the version checker!!!!!!!
+    this->version = "1.1";
+    this->gversion = "1.0.1";
 }
 
 MainWindow::~MainWindow()
@@ -27,6 +30,7 @@ void MainWindow::establishUIConnections()
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(onExitActionTriggered()));
     connect(ui->actionChecksum_Generator, SIGNAL(triggered()), this, SLOT(OpenChecksumGeneratorWindow()));
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(onAboutActionTriggered()));
+    connect(ui->actionUpdates, SIGNAL(triggered()), this, SLOT(onUpdateCheckActionTriggered()));
 
     // Connect browse buttons with SIGNALS and SLOTS
     connect(ui->bBrowseFile, SIGNAL(clicked()), this, SLOT(onBrowseFileButtonClicked()));
@@ -181,9 +185,35 @@ void MainWindow::OpenChecksumGeneratorWindow()
 void MainWindow::onAboutActionTriggered()
 {
     AboutDialog *w = new AboutDialog();
-    w->setAppVersion("1.0.1");
-    w->setGenVersion("1.0.1");
+    w->setAppVersion(version);
+    w->setGenVersion(gversion);
     w->show();
+}
+
+void MainWindow::onUpdateCheckActionTriggered()
+{
+    QUrl url("http://cdn.kalebklein.com/md5sum/version.txt");
+    downloader = new FileDownloader(url, this);
+
+    connect(downloader, SIGNAL(downloaded()), SLOT(onCompleted()));
+}
+
+void MainWindow::onCompleted()
+{
+    int wVersion = QString(downloader->downloadedData()).toInt();
+    if(lVersion < wVersion)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "New Update Available", "An update is now available, would you like to download the update?", QMessageBox::Yes|QMessageBox::No);
+        if(reply == QMessageBox::Yes)
+        {
+            QDesktopServices::openUrl(QString("http://www.kalebklein.com/applications/md5sum"));
+        }
+    }
+    else
+    {
+        QMessageBox::information(this, "Check for Updates", "You are currently up to date!");
+    }
 }
 
 // Used from actionExit to trigger closeEvent()

@@ -211,6 +211,17 @@ namespace compiler
                 }
             }
             Write("");
+            //createInstaller();
+            copyUpdate();
+        }
+
+        private void copyUpdate()
+        {
+            Write("Copyting new executable to update directory for applicaiton update..\n");
+            if (!Directory.Exists(EnVars["MROOT"] + "updates"))
+                Directory.CreateDirectory(EnVars["MROOT"] + "updates");
+
+            File.Copy(EnVars["MBIN"] + "MD5Sum.exe", EnVars["MROOT"] + "updates\\MD5Sum.exe");
             createInstaller();
         }
 

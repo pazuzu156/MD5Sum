@@ -1,20 +1,20 @@
-#define MyAppName "MD5Sum"
-#define MyAppVersion "1.0.1"
-#define MyAppPublisher "Kaleb Klein"
-#define MyAppURL "http://www.kalebklein.com"
-#define MyAppExeName "MD5Sum.exe"
+#define AppName "MD5Sum"
+; #define MyAppVersion "1.0.1"
+#define Publisher "Kaleb Klein"
+#define AppURL "http://www.kalebklein.com"
+#define AppEXE "MD5Sum.exe"
 
 [Setup]
 AppId={{59F5B31A-8CCF-4541-AB31-F200C18AC3FC}
-AppName={#MyAppName}
-AppVersion={#MyAppVersion}
-AppVerName={#MyAppName} {#MyAppVersion}
-AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
-AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\{#MyAppName}
-DefaultGroupName={#MyAppName}
+AppName={#AppName}
+AppVersion={#Version}
+AppVerName={#AppName} {#Version}
+AppPublisher={#Publisher}
+AppPublisherURL={#AppURL}
+AppSupportURL={#AppURL}
+AppUpdatesURL={#AppURL}
+DefaultDirName={pf}\{#AppName}
+DefaultGroupName={#AppName}
 LicenseFile=bin\license.txt
 OutputBaseFilename=md5sum_setup
 SetupIconFile=bin\gear.ico
@@ -28,7 +28,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Types]
 Name: "full"; Description: "Default Installation"
-Name: "source"; Description: "Include source code for {#MyAppName}"; Flags: iscustom
+Name: "source"; Description: "Include source code for {#AppName}"; Flags: iscustom
 
 [Components]
 Name: "app"; Description: "Default installation"; Types: full source; Flags: fixed
@@ -87,14 +87,15 @@ Source: "bin\MD5Sum.exe"; DestDir: "{app}"; Flags: ignoreversion; Components: ap
 Source: "bin\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 Source: "bin\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
+Source: "bin\Qt5Network.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: app
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
-Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
+Name: "{group}\{#AppName}"; Filename: "{app}\{#AppEXE}"
+Name: "{group}\{cm:ProgramOnTheWeb,{#AppName}}"; Filename: "{#AppURL}"
+Name: "{group}\{cm:UninstallProgram,{#AppName}}"; Filename: "{uninstallexe}"
+Name: "{commondesktop}\{#AppName}"; Filename: "{app}\{#AppEXE}"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#AppName}"; Filename: "{app}\{#AppEXE}"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\{#AppName}"; Description: "{cm:LaunchProgram,{#StringChange(AppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 

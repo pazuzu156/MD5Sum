@@ -23,6 +23,12 @@ namespace compiler
             private set;
         }
 
+        public String Version
+        {
+            get;
+            private set;
+        }
+
         public Vars(String file)
         {
             this.EnVars = new Dictionary<String, String>();
@@ -102,6 +108,9 @@ namespace compiler
                                 "path",
                                 mingwdir + ";" + path,
                                 EnvironmentVariableTarget.Process);
+                            break;
+                        case "Version":
+                            this.Version = str.Split('\\')[0];
                             break;
                     }
                 }

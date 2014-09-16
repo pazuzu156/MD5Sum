@@ -11,6 +11,7 @@ namespace compiler
     {
         private Dictionary<String, String> EnVars;
         private List<String> Libs;
+        private String Version;
         
         // For log
         FileStream os;
@@ -61,6 +62,7 @@ namespace compiler
 
             EnVars = v.EnVars;
             Libs = v.Libs;
+            Version = v.Version;
         }
 		
 		private bool findTools()
@@ -233,7 +235,7 @@ namespace compiler
                 StartInfo = new ProcessStartInfo()
                 {
                     FileName = EnVars["ISS"] + "iscc.exe",
-                    Arguments = "/o" + EnVars["MROOT"] + "release " + EnVars["MROOT"] + "md5sum_setup.iss",
+                    Arguments = "/o" + EnVars["MROOT"] + "release /dVersion=" +  Version + " " + EnVars["MROOT"] + "md5sum_setup.iss",
                     UseShellExecute = false,
                     RedirectStandardOutput = true
                 }

@@ -16,9 +16,13 @@ namespace compiler
         // For log
         FileStream os;
         StreamWriter writer;
+        string elapsedTime;
+        Stopwatch watch;
         
         public Compiler()
         {
+            watch = Stopwatch.StartNew();
+
             logger();
 
             getEnVars();
@@ -271,6 +275,15 @@ namespace compiler
             Directory.Delete(EnVars["CURDIR"] + "release", true);
             Directory.Delete(EnVars["CURDIR"] + "debug", true);
 
+            watch.Stop();
+
+            int second = (int)watch.ElapsedMilliseconds / 1000;
+            int minute = (int)watch.ElapsedMilliseconds / 60000;
+
+            elapsedTime = String.Format("{0}m:{1}s", minute, second);
+
+            writer.WriteLine("\nElapsed build time: " + elapsedTime);
+
             writer.WriteLine("\n=================================================");
             writer.WriteLine("End of log");
             writer.WriteLine("=================================================");
@@ -278,7 +291,7 @@ namespace compiler
             writer.Close();
             os.Close();
 
-            Write("\nBuild 100% Successfull!");
+            Write("\nBuild 100% Successfull! Total build time: " + elapsedTime);
             Write("Setup file can be found at:\n" + EnVars["MROOT"] + "release");
             Write("A log has also been written with full details on compilation\n");
             Write("Press <RETURN> to close");
